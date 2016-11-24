@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		button{
+			position: relative;
+			color: #ffffff;
+			font-size: 28px;
+			padding: 20px;
+			border: none;
+			width: 200px;
+			background-color: #4CAF50;
+			border-radius: 4px;
+			overflow: hidden;
+			cursor: pointer;
+		}
+		button:after{
+			position: absolute;
+			display: block;
+			content: "";
+			background-color: #90EE90;
+/*			padding-top: 300%;
+			padding-left: 350%;*/
+			width: 500px;
+			height: 500px;
+			opacity: 0.5;
+			top: 75px;
+			left: -500px;
+			transition: 0.5s;
+			-moz-transition: 0.5s;
+			-webkit-transition: 0.5s;
+		}
+		button:active button:after{
+			top: -425px;
+			left: 1000px;
+		}
+	</style>
+</head>
+<body>
+	
+	<button>
+		<span>Click Me</span>
+	</button>
+
+</body>
+</html>

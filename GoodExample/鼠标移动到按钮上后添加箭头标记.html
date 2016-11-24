@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		button{
+			display: inline-block;
+			width: 200px;
+			padding: 20px;
+			font-size: 28px;
+			border: none;
+			background-color: #f4511e;
+			color: #ffffff;
+			border-radius: 4px;
+			text-align: center;
+			cursor: pointer;
+			/*transition: all 0.5s;*/
+		}
+		button span{
+			position: relative;
+			cursor: pointer;
+			display: inline-block;
+			transition: 0.5s;
+			border: 1px solid #000000;
+		}
+		button span:after{
+			position: absolute;
+			content: "»";
+			opacity: 0;
+			transition: 0.5s;
+			top: 0;
+			right: -29px;
+		}
+		button:hover{
+			box-shadow: 0 0 5px 5px #c6c6c6;
+		}
+		button:hover span{
+			padding-right: 25px;
+		}
+		button:hover span:after{
+			right: 0;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	
+	<button>
+		<span>Hover</span>
+	</button>
+
+</body>
+</html>
