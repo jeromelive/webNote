@@ -1,0 +1,48 @@
+1.创建xhr对象
+	var xhr = new XmlHttpRequest()
+
+2.open()方法
+	参数
+		1.要发送的请求的类型，常用请求类型get、post、push、delete;
+		2.请求的URL
+		3.是否一部发送请求的布尔值
+
+3.send()方法
+	参数：请求主体发送的数据，如果不需要通过请求主体发送数据，则必须传入null
+
+4.收到响应后，响应的数据会自动填充XHR对象的属性
+	responseText:作为响应主体被返回的文本
+	responseXML:如果响应的内容类型是"text/xml"或"application/xml",属性中将保存包含着响应数据的XML DOM文档
+	status:响应的HTTP状态
+	statusText:HTTP状态的说明
+
+	检查status属性以确定响应已经成功返回，一般讲HTTP状态代码为200作为成功的标志，此时responseText属性的内容已经就绪。
+	此外代码为304表示请求的资源并没有被修改，可以直接使用浏览器中缓存的版本
+	由于statusText属性跨浏览器使用不太可靠，一般都是status来决定下一步的操作
+
+5.readyState属性，表示请求/响应过程的当前活动阶段
+	0：未初始化。尚未调用open()方法
+	1：启动。已经调用open()方法，但尚未调用send()方法
+	2：发送。已经调用send()方法，但尚未接收到响应
+	3：接收。已经接收到部分响应数据
+	4：完成。已经接收到全部响应数据，而且已经可以在客户端使用了
+
+	readyState属性的值又一个值变成另一个值，都会触发一次readystatechange事件，不过，必须在调用open()之前指定onreadystatechange事件处理程序才能确保跨浏览器兼容性
+
+举个栗子：
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if( xhr.readyState == 4 ){
+			if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+				console.log( xhr.responseText );
+			}else{
+				console.log( "Request was unsucceessful:" + xjr.status );
+			}
+		}
+	}
+	xhr.open( "get", "example.txt", true );
+	xhr.send( null );
+
+6.接收到响应之前可以调用abort()方法来取消异步请求：
+	xhr.abort();d
