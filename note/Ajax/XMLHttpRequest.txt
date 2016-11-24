@@ -45,4 +45,4 @@
 	xhr.send( null );
 
 6.接收到响应之前可以调用abort()方法来取消异步请求：
-	xhr.abort();d
+	xhr.abort();
