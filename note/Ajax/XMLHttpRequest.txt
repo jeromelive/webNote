@@ -47,4 +47,4 @@
 	栗子中在onreadystatechange事件处理程序中使用xhr对象，没有使用this对象，原因是onreadystatechange事件处理程序的作用域问题，有些浏览器中会导致程序执行失败
 
 6.接收到响应之前可以调用abort()方法来取消异步请求：
-	xhr.abort();
+	xhr.abort();   
