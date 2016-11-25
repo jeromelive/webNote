@@ -14,10 +14,13 @@
 			height: 50px;
 			line-height: 50px;
 			text-align: center;
-			color: -webkit-linear-gradient( #FF99FF, #660033 );
-			color: -o-linear-gradient( #FF99FF, #660033 );
-			color: -moz-linear-gradient( #FF99FF, #660033 );
-			color: linear-gradient( #FF99FF, #660033 );
+		}
+		div pre{
+			display: inline-block;
+			color: #049246;
+			font-size: 18px;
+			width: 300px;
+			overflow: hidden;
 		}
 		div p{
 			width: 200px;
@@ -86,9 +89,41 @@
 
 	<div class="btnContainer5" style="position: relative;">
 		<span>animate方法 $(selector).animate({params},speed,callback);</span>
+<pre>
+多个操作,使用相对值
+$("button").click(function(){
+	$("div").animate({
+		left: "50%",
+		opactiy: 0.1,
+		width: "+=200px",
+		height: "+=200px"
+	});
+}); 
+</pre>
+<pre>
+属性的值可以使用预定义的值:
+	"show","hide","toggle"
+$("button").click(function(){
+  $("div").animate({
+	height: "toggle"
+  });
+}); 
+</pre>
 		<p>click here</p>
 		<p style="position: absolute;">动画</p>
 		<hr />
+	</div>
+
+	<div class="btnContainer6" style="position: relative;">
+		<p>click here</p>
+		<p style="position: absolute;">动画</p>
+		<hr />
+	</div>
+
+	<div class="btnContainer6">
+		<span>停止动画 stop( stopAll,goToEnd ) </span>
+		<span>stopALL参数规定是否清楚动画队列，默认是false，即仅停止活动的动画，允许任何排入列表的动画向后执行</span>
+		<span>goToEnd参数规定是否立即完成当前动画，默认是false</span>
 	</div>
 
 	<script type="text/javascript">
@@ -163,17 +198,27 @@
 
 			} );
 
+			//画上画下
 			$( "div.btnContainer4 P:first-of-type" ).click( function(){
 				$( "div.btnContainer4 p:last-of-type" ).slideToggle( "fast" );
 			} );
 
 			$( "div.btnContainer5 P:first-of-type" ).click( function(){
 				$( "div.btnContainer5 p:last-of-type" ).animate( {
-					left: "50%",
-					opactiy: 0.1,
-					width: "+200px",
-					height: "+200px"
+					height: "200px"
 				}, "slow" );
+				$( "div.btnContainer5 p:last-of-type" ).animate( {
+					height: "50px"
+				}, "slow" );
+			} );
+
+
+			//animate - 队列功能
+			$( "div.btnContainer6 P:first-of-type" ).click( function(){
+				$( "div.btnContainer6 p:last-of-type" ).animate( {left: "50%", marginLeft: "-200px", height: "400px",opactiy: "0.5"}, "slow" );
+				$( "div.btnContainer6 p:last-of-type" ).animate( {width: "400px",opactiy: "0.8",borderRadius: "200px"}, "slow" );
+				$( "div.btnContainer6 p:last-of-type" ).animate( {height: "50px",opactiy: "0.5",borderRadius: "200px"}, "slow" );
+				$( "div.btnContainer6 p:last-of-type" ).animate( {width: "200px",opactiy: "0.8"}, "slow" );
 			} );
 
 		} );
