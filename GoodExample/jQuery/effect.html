@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script src="./package/jquery-3.1.0.js"></script>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		div span{
+			display: block;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			color: -webkit-linear-gradient( #FF99FF, #660033 );
+			color: -o-linear-gradient( #FF99FF, #660033 );
+			color: -moz-linear-gradient( #FF99FF, #660033 );
+			color: linear-gradient( #FF99FF, #660033 );
+		}
+		div p{
+			width: 200px;
+			margin: 0 auto;
+			text-align: center;
+			color: #ffffff;
+			font-size: 20px;
+			height: 50px;
+			line-height: 50px;
+			border-radius: 5px;
+		}
+		div p:first-of-type{
+			cursor: pointer;
+			background: -webkit-linear-gradient( top, #FF99FF, #660033 );
+			background: -o-linear-gradient( bottom, #FF99FF, #660033 );
+			background: -moz-linear-gradient( bottom, #FF99FF, #660033 );
+			background: linear-gradient( to bottom, #FF99FF, #660033 );
+		}
+		div p:last-of-type{
+			background: -webkit-linear-gradient( left, #660033, #FF99FF );
+			background: -o-linear-gradient( right , #660033, #FF99FF );
+			background: -moz-linear-gradient( right, #660033, #FF99FF );
+			background: linear-gradient( to right, #660033, #FF99FF);
+		}
+		div hr{
+			color:#FF3300;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="btnContainer">
+		<span>hide show方法 $(selector).hide(speed,callback); $(selector).show(speed,callback); $(selector).toggle(speed,callback);</span>
+		<p>click here</p>
+		<p>显示/隐藏</p>
+		<hr />
+	</div>
+
+	<div class="btnContainer1">
+		<span>fadeOut fadeIn方法 $(selector).fadeIn(speed,callback); $(selector).fadeOut(speed,callback); $(selector).fadeToggle(speed,callback);</span>
+		<p>click here</p>
+		<p>显示/隐藏</p>
+		<hr />
+	</div>
+
+	<div class="btnContainer2">
+		<span>fadeTo方法 $(selector).fadeTo(speed,opacity,callback);</span>
+		<p>click here</p>
+		<p>显示/隐藏</p>
+		<hr />
+	</div>
+
+	<div class="btnContainer3">
+		<span>slideUp slideDown方法 $(selector).slideDown(speed,callback); $(selector).slideUp(speed,callback);</span>
+		<p>click here</p>
+		<p>显示/隐藏</p>
+		<hr />
+	</div>
+
+	<div class="btnContainer4">
+		<span>slideToggle方法 $(selector).slideToggle(speed,callback);</span>
+		<p>click here</p>
+		<p>显示/隐藏</p>
+		<hr />
+	</div>
+
+	<div class="btnContainer5" style="position: relative;">
+		<span>animate方法 $(selector).animate({params},speed,callback);</span>
+		<p>click here</p>
+		<p style="position: absolute;">动画</p>
+		<hr />
+	</div>
+
+	<script type="text/javascript">
+		
+		$( document ).ready( function(){
+
+			// hide和show方法，元素隐藏时不占空间，显示时占空间
+
+			var key = true;
+			$( "div.btnContainer p:first-of-type" ).click( function(){
+
+				key ? ( function(){
+						$( "div.btnContainer p:last-of-type" ).hide( "slow" );
+						key = false;
+				} )() : ( function(){
+						$( "div.btnContainer p:last-of-type" ).show( "slow" );
+						key = true;
+					} )();
+
+			} );
+			
+			// toggle方法可根据元素显示隐藏状态判断是否显示或隐藏
+
+			// $( "div.btnContainer p:first-of-type" ).click( function(){
+
+			// 	$( "div.btnContainer p:last-of-type" ).toggle( "slow" );
+
+			// } );
+
+			// 淡入淡出，淡出最终不占据空间，淡入占据空间
+			// var fadeKey = true;
+			// $( "div.btnContainer1 p:first-of-type" ).click( function(){
+
+			// 	fadeKey ? ( function(){
+
+			// 		$( "div.btnContainer1 p:last-of-type" ).fadeOut();
+			// 		fadeKey = false;
+
+			// 	} )() : ( function(){
+
+			// 		$( "div.btnContainer1 p:last-of-type" ).fadeIn();
+			// 		fadeKey = true;
+
+			// 	} )();
+				
+			// } );
+
+			$( "div.btnContainer1 p:first-of-type" ).click( function(){
+
+				$( "div.btnContainer1 p:last-of-type" ).fadeToggle( "slow" );
+
+			} );
+
+			// fadeTo 透明度
+			$( "div.btnContainer2 p:first-of-type" ).click( function(){
+
+				$( "div.btnContainer2 p:last-of-type" ).fadeTo( "slow", 0.6 );
+
+			} );
+
+			//滑动
+			var slideKey = true;
+			$( "div.btnContainer3 P:first-of-type" ).click( function(){
+
+				slideKey ? ( function(){
+					$( "div.btnContainer3 p:last-of-type" ).slideDown( "slow" );
+					slideKey = false;
+				} )() : ( function(){
+					$( "div.btnContainer3 p:last-of-type" ).slideUp( "slow" );
+					slideKey = true;
+				} )();
+
+			} );
+
+			$( "div.btnContainer4 P:first-of-type" ).click( function(){
+				$( "div.btnContainer4 p:last-of-type" ).slideToggle( "fast" );
+			} );
+
+			$( "div.btnContainer5 P:first-of-type" ).click( function(){
+				$( "div.btnContainer5 p:last-of-type" ).animate( {
+					left: "50%",
+					opactiy: 0.1,
+					width: "+200px",
+					height: "+200px"
+				}, "slow" );
+			} );
+
+		} );
+
+	</script>
+
+</body>
+</html>
