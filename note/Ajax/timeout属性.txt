@@ -1,0 +1,69 @@
+FormData类型，为序列化表单以及创建与表单格式相同的数据提供便利
+	
+	var data = new FormData();
+
+	使用append()方法添加字段，接收两个参数：键和值
+		data.append( "name", "jerome" );
+
+	通过向FormData构造函数中传入表单元素，也可以用表单元素订单数据预先向其中填入键值对
+		var data = new FormData( document.forms[0] );
+
+	FormData也可以发送二进制文件，HTML中要有一个包含文本输入框的form元素
+
+	还有直接向FormData对象中添加一个File对象或一个Blob对象
+		data.append( "myfile", myfile );
+
+	如果FormData对象中的某个字段值是一个Blob对象,则在发送http请求时,代表该Blob对象所包含文件的文件名的"Content-Disposition"请求头的值在不同的浏览器下有所不同,Firefox使用了固定的字符串"blob,"而Chrome使用了一个随机字符串.
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if( xhr.readyState == 4 ){
+			if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+				console.log( xhr.responseText );
+			}else{
+				console.log( "Request was unsucceessful:" + xjr.status );
+			}
+		}
+	}
+	xhr.open( "post", "example.txt", true );
+	xhr.send( new FormData( document.forms[0] ) );
+
+	使用jQuery发送FormData,必须要确定设置相关选项
+
+	var fd = new FormData(document.getElementById("fileinfo"));
+	fd.append("CustomField", "This is some extra data");
+	$.ajax({
+	  url: "stash.php",
+	  type: "POST",
+	  data: fd,
+	  processData: false,  // 告诉jQuery不要去处理发送的数据
+	  contentType: false   // 告诉jQuery不要去设置Content-Type请求头
+	});
+
+
+timeout属性，表示请求在等待响应多少毫秒之后就终止
+
+	假如属性设置为1000毫秒，意味着如果请求在1秒钟内还没有返回，就会自动终止。请求终止时，会调用ontimeout事件处理程序。此时readystate可能已经改变为4了，意味着会调用onreadystatechange事件处理程序，可是在超时终止请求之后再访问status属性会导致错误，为了避免流浪器报告错误，将检查satus属性的语句封装咋一个try-catch语句中
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		try{
+			if( xhr.readyState == 4 ){
+				if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+					console.log( xhr.responseText );
+				}else{
+					console.log( "Request was unsucceessful:" + xjr.status );
+				}
+			}
+		}catch{
+			//鸡舍ontimeout事件处理程序处理
+		}
+
+	}
+	xhr.open( "get", "example.txt", true );
+	xht.timeout = 1000; //将超时设置为1秒钟
+	xhr.ontimeout = function(){
+		alert( "超时" );
+	};
+	xhr.send( null );
+

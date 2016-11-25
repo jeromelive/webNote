@@ -1,0 +1,41 @@
+FormData类型，为序列化表单以及创建与表单格式相同的数据提供便利
+	
+	var data = new FormData();
+
+	使用append()方法添加字段，接收两个参数：键和值
+		data.append( "name", "jerome" );
+
+	通过向FormData构造函数中传入表单元素，也可以用表单元素订单数据预先向其中填入键值对
+		var data = new FormData( document.forms[0] );
+
+	FormData也可以发送二进制文件，HTML中要有一个包含文本输入框的form元素
+
+	还有直接向FormData对象中添加一个File对象或一个Blob对象
+		data.append( "myfile", myfile );
+
+	如果FormData对象中的某个字段值是一个Blob对象,则在发送http请求时,代表该Blob对象所包含文件的文件名的"Content-Disposition"请求头的值在不同的浏览器下有所不同,Firefox使用了固定的字符串"blob,"而Chrome使用了一个随机字符串.
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if( xhr.readyState == 4 ){
+			if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+				console.log( xhr.responseText );
+			}else{
+				console.log( "Request was unsucceessful:" + xjr.status );
+			}
+		}
+	}
+	xhr.open( "post", "example.txt", true );
+	xhr.send( new FormData( document.forms[0] ) );
+
+	使用jQuery发送FormData,必须要确定设置相关选项
+
+	var fd = new FormData(document.getElementById("fileinfo"));
+	fd.append("CustomField", "This is some extra data");
+	$.ajax({
+	  url: "stash.php",
+	  type: "POST",
+	  data: fd,
+	  processData: false,  // 告诉jQuery不要去处理发送的数据
+	  contentType: false   // 告诉jQuery不要去设置Content-Type请求头
+	});
