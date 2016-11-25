@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script type="text/javascript" src="./package/jquery-3.1.0.js"></script>
+	<style type="text/css">
+		div.container div{
+			width: 500px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		div.container ul{
+			list-style-type:circle;
+		}
+		div.container ul li{
+			list-style-image: url( "./image/F115.tmp.jpg" );
+			text-align: left;
+		}
+		div.container input{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div>
+			<h3>获取内容 - text()、html()、val()</h3>
+			<ul>
+				<li>text() - 设置或返回所选元素的文本内容</li>
+				<li>html() - 设置或返回所选元素的内容（包含HTML标签）</li>
+				<li>val() - 设置或返回表单字段的值</li>
+			</ul>
+			<input type="text" name="msg"><br />
+			<button class="btn0" name="jerome">value</button><br />
+			<span class="textAttr"></span>
+		</div>
+
+		<div>
+			<h3>获取属性 - arr()</h3>
+			<ul>
+				<li>attr() - 方法用于获取属性值</li>
+			</ul>
+			<button class="btn1" name="获取我干什么">点击我获取button的name属性值</button><br />
+			<span class="attrText"></span>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		$( document ).ready( function(){
+			$( "div.container button.btn0" ).click( function(){
+				$( "div.container span.textAttr" ).text( $( "div.container input" ).val() );
+			} );
+
+			$( "div.container button.btn1" ).click( function(){
+				$( "div.container span.attrText" ).text( $( "div.container button.btn1" ).attr( "name" ) );
+			} );
+		} );
+
+	</script>
+
+</body>
+</html>
