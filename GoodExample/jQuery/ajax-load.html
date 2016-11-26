@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery的-load方法</title>
+	<script type="text/javascript" src="./package/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+	<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+</head>
+<body>
+	<div class="loadcontainer">
+		<header>
+			<h2>load方法</h2>
+		</header>
+		<ul>
+			<li><h3>$(selector).load(URL,data,callback);</h3></li>
+			<li>
+				<h4>参数：</h4>
+				<ul>
+					<li>URL必须，规定加载的URL</li>
+					<li>data可选，规定与请求易容发送的查询字符串建/值对集合</li>
+					<li>
+						callbacl可选，load方法完成后执行的函数名称，函数参数是:
+						<ul>
+							<li>responseTxt - 包含调用成功时的结果内容</li>
+							<li>statusTXT - 包含调用的状态</li>
+							<li>xhr - 包含XMLHttpRequest对象</li>
+						</ul>
+					
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<p>下面例子为例：</p>
+		<p>请求资源的内容为txt文件，URL：http://www.runoob.com/try/ajax/demo_test.txt，内容：</p>
+		<p>&lt;h2&gt;jQuery AJAX 是个非常棒的功能！&lt;/h2&gt;</p>
+		<p>&lt;p id="p1"&gt;这是段落的一些文本。&lt;/p&gt;</p>
+		<ul>
+			<li><button class="load">下载txt文件</button></li>
+			<li><button class="loadP">加载id为p1的&lt;p&gt;元素</button></li>
+			<li></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+
+		$youziku.load("body", "c682438286354c43ae91370a4a5b123a", "Source-Han-Light");
+	    $youziku.draw();
+
+	    $( document ).ready( function(){
+
+	    	$( "div ul:last-of-type li button.load" ).click( function(){
+	    		$( "ul:last-of-type li:last-of-type" ).load( "http://www.runoob.com/try/ajax/demo_test.txt", function(){
+	    			console.log( "ok" );
+	    		} );
+	    	} );
+
+	    	$( "div ul:last-of-type li button.loadP" ).click( function(){
+	    		$( "ul:last-of-type li:last-of-type" ).load( "http://www.runoob.com/try/ajax/demo_test.txt #p1", function(){
+	    			console.log( "ok" );
+	    		} );
+	    	} );
+
+	    } );
+
+	</script>
+</body>
+</html>
