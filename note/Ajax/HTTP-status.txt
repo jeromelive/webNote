@@ -1,0 +1,12 @@
+			已定义范围			分类
+1xx 		100-101   			信息提示
+2xx			200-206				成功
+3xx			300-305				重定向
+4xx			400-415				客户端错误
+5xx 		500-505				服务器错误
+
+200:服务器成功处理请求
+301/302：Moved Permanently（重定向）请求的URL已移走。Response中应该包含一个Location URL，说明资源现在所处的位置
+304：Not Modified（未修改）客户的缓存资源是最新的，要客户端使用缓存
+404：Not Found 未找到资源
+5xx：Internam Server Error 服务器错误

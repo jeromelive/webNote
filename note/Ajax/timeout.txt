@@ -1,0 +1,26 @@
+timeout属性，表示请求在等待响应多少毫秒之后就终止
+
+	假如属性设置为1000毫秒，意味着如果请求在1秒钟内还没有返回，就会自动终止。请求终止时，会调用ontimeout事件处理程序。此时readystate可能已经改变为4了，意味着会调用onreadystatechange事件处理程序，可是在超时终止请求之后再访问status属性会导致错误，为了避免流浪器报告错误，将检查satus属性的语句封装咋一个try-catch语句中
+
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		try{
+			if( xhr.readyState == 4 ){
+				if( (xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 ){
+					console.log( xhr.responseText );
+				}else{
+					console.log( "Request was unsucceessful:" + xjr.status );
+				}
+			}
+		}catch{
+			//鸡舍ontimeout事件处理程序处理
+		}
+
+	}
+	xhr.open( "get", "example.txt", true );
+	xht.timeout = 1000; //将超时设置为1秒钟
+	xhr.ontimeout = function(){
+		alert( "超时" );
+	};
+	xhr.send( null );
+
