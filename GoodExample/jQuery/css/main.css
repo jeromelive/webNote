@@ -9,8 +9,8 @@ div{
 	margin-bottom: 20px;
 	font-size: 20px;
 }
-ul{
-	list-style-type:circle;
+div > ul{
+	border:2px solid #00A2E8;
 }
 ul li{
 	list-style-image: url( "./img/F115.tmp.jpg" );
