@@ -1,57 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<title>test</title>
 	<script type="text/javascript" src="./package/jquery-3.1.0.js"></script>
-	<style type="text/css">
-		div{
-			width: 500px;
-			margin: 0 auto;
-			text-align: center;
-			margin-bottom: 20px;
-		}
-		ul{
-			list-style-type:circle;
-		}
-		ul li{
-			list-style-image: url( "./image/F115.tmp.jpg" );
-			text-align: left;
-		}
-		input[name="msg"]{
-			margin-bottom: 20px;
-		}
-		button{
-			color: #ffffff;
-			font-size: 20px;
-			height: 30px;
-			margin-bottom: 5px;
-			border:none;
-			outline: none;
-			border-radius: 15px;
-			background-image:linear-gradient( to bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
-			background-image:-webkit-linear-gradient( top, #2BFCFF, #20DCDF 50%, #1CB8BA );
-			background-image:-moz-linear-gradient( bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
-			background-image:-o-linear-gradient( bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
-		}
-		div.eleoperate p.operateP{
-			border: 1px solid #33AF7F;
-			color: #646464;
-		}
-
-		div.classoperate button.addtional{
-			color: #000000;
-		}
-		div.box p{
-			width:300px;
-			height: 300px;
-			margin: 0 auto;
-			background-image: radial-gradient( #2EF669, #22B14C );
-			background-image: -webkit-radial-gradient( #2EF669, #22B14C );
-			background-image: -moz-radial-gradient( #2EF669, #22B14C );
-			background-image: -o-radial-gradient( #2EF669, #22B14C );
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+	<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
 </head>
 <body>
 	
@@ -74,6 +28,7 @@
 		</ul>
 		<button class="btn1" name="获取我干什么">点击我获取button的name属性值</button><br />
 		<span class="attrText"></span>
+		<br />
 		<strong>以上函数拥有回调函数，包含两个参数：被选元素列表中当前元素的下标，以及原始(旧的)值，函数返回新的值</strong>
 		<hr />
 	</div>
@@ -102,14 +57,19 @@
 	</div>
 
 	<script type="text/javascript">
+
+	    $youziku.load("body", "c682438286354c43ae91370a4a5b123a", "Source-Han-Light");
+	    /*$youziku.load("#id1,.class1,h1", "c682438286354c43ae91370a4a5b123a", "Source-Han-Light");*/
+	    /*．．．*/
+	    $youziku.draw();
 		
 		$( document ).ready( function(){
-			$( "div.container button.btn0" ).click( function(){
-				$( "div.container span.textAttr" ).text( $( "div.container input" ).val() );
+			$( "button.btn0" ).click( function(){
+				$( "span.textAttr" ).text( $( "input[name='msg']" ).val() );
 			} );
 
-			$( "div.container button.btn1" ).click( function(){
-				$( "div.container span.attrText" ).text( $( "div.container button.btn1" ).attr( "name" ) );
+			$( "button.btn1" ).click( function(){
+				$( "span.attrText" ).text( $( "button.btn1" ).attr( "name" ) );
 			} );
 
 

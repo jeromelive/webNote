@@ -1,0 +1,51 @@
+@font-face{
+	font-family:myFont;
+	src: url( "" );
+}
+div{
+	width: 30%;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+ul{
+	list-style-type:circle;
+}
+ul li{
+	list-style-image: url( "./img/F115.tmp.jpg" );
+	text-align: left;
+}
+input[name="msg"]{
+	margin-bottom: 20px;
+}
+button{
+	color: #ffffff;
+	font-size: 20px;
+	height: 30px;
+	margin-bottom: 5px;
+	border:none;
+	outline: none;
+	border-radius: 15px;
+	background-image:linear-gradient( to bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
+	background-image:-webkit-linear-gradient( top, #2BFCFF, #20DCDF 50%, #1CB8BA );
+	background-image:-moz-linear-gradient( bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
+	background-image:-o-linear-gradient( bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
+}
+div.eleoperate p.operateP{
+	border: 1px solid #33AF7F;
+	color: #646464;
+}
+
+div.classoperate button.addtional{
+	color: #000000;
+}
+div.box p{
+	width:300px;
+	height: 300px;
+	margin: 0 auto;
+	background-image: radial-gradient( #2EF669, #22B14C );
+	background-image: -webkit-radial-gradient( #2EF669, #22B14C );
+	background-image: -moz-radial-gradient( #2EF669, #22B14C );
+	background-image: -o-radial-gradient( #2EF669, #22B14C );
+}

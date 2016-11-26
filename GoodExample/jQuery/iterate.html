@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<script type="text/javascript" src="./package/jquery-3.1.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+	<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+</head>
+<body>
+	
+	<div>
+		<header>
+			<h2>遍历方法</h2>
+		</header>
+		<ul>
+			<li>parent()方法 - 返回被选元素直接父元素</li>
+			<li>parents()方法 - 返回被选元素的所有祖先元素</li>
+			<li>parentsUtile()方法 - 返回介于两个给定元素之间的所有父元素</li>
+			<li>childen()方法 - 返回被选元素的所有直接子元素
+				<ul>
+					<li>$("div").children("p.1"); 返回属于&lt;div&gt;后代的所有&lt;p&gt;含有类名1，且是&lt;div&gt;的直系元素</li>
+				</ul>
+			</li>
+			<li>
+				find()方法 - 返回被选元素的后台元素，之路向下直接到最后一个后代
+				<ul>
+					<li>$("div").find("span"); 返回属于&lt;div&gt;后代的所有&lt;span&gt;元素</li>
+				</ul>
+			</li>
+			<li>siblings()方法 - 返回被选元素的所有同胞元素</li>
+			<li>next()方法 - 返回被选元素的下一个同胞元素</li>
+			<li>nextAll方法 - 返回被选元素的所有跟随的同胞元素</li>
+			<li>nextUnitl()方法 - 返回介于两个给定参数之间的所有跟随的同胞元素</li>
+			<li>prev()方法 - 返回被选元素的上一个同胞元素</li>
+			<li>prevAll方法 - 返回被选元素的所有前面的同胞元素</li>
+			<li>prevUnitl()方法 - 返回介于两个给定参数之间的所有前面的同胞元素</li>
+		</ul>
+		<strong>以上方法（除了parent,next,prev:只获取一个元素）都可以传入一个选择器参数，用于过滤使用</strong>
+		<header>
+			<h2>过滤方法</h2>
+		</header>
+		<ul>
+			<li>
+				first()方法 - 返回被选元素的首个元素
+				<ul>
+					<li>$("div p").first();返回第一个元素</li>
+				</ul>
+			</li>
+			<li>
+				last()方法 - 返回被选元素的最后一个元素
+				<ul>
+					<li>$("div p").last();返回最后一个元素</li>
+				</ul>
+			</li>
+			<li>
+				eq()方法 - 返回被选元素带有指定索引号的元素
+				<ul>
+					<li>$("div p").eq(1);返回索引为1的元素，第二个元素</li>
+				</ul>
+			</li>
+			<li>
+				filter()方法 - 不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回
+				<ul>
+					<li>$("p").filter(".url");返回带有url类名的元素集合</li>
+				</ul>
+			</li>
+			<li>
+				not()方法 - 返回不匹配标准的所有元素，与filter相反
+				<ul>
+					<li>$("p").not(".url");返回不带有url类名的元素集合</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+	    $youziku.load("body", "c682438286354c43ae91370a4a5b123a", "Source-Han-Light");
+	    /*$youziku.load("#id1,.class1,h1", "c682438286354c43ae91370a4a5b123a", "Source-Han-Light");*/
+	    /*．．．*/
+	    $youziku.draw();
+	</script>
+
+</body>
+</html>
