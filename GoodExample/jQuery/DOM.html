@@ -5,46 +5,100 @@
 	<title>test</title>
 	<script type="text/javascript" src="./package/jquery-3.1.0.js"></script>
 	<style type="text/css">
-		div.container div{
+		div{
 			width: 500px;
 			margin: 0 auto;
 			text-align: center;
+			margin-bottom: 20px;
 		}
-		div.container ul{
+		ul{
 			list-style-type:circle;
 		}
-		div.container ul li{
+		ul li{
 			list-style-image: url( "./image/F115.tmp.jpg" );
 			text-align: left;
 		}
-		div.container input{
+		input[name="msg"]{
 			margin-bottom: 20px;
+		}
+		button{
+			color: #ffffff;
+			font-size: 20px;
+			height: 30px;
+			margin-bottom: 5px;
+			border:none;
+			outline: none;
+			border-radius: 15px;
+			background-image:linear-gradient( to bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
+			background-image:-webkit-linear-gradient( top, #2BFCFF, #20DCDF 50%, #1CB8BA );
+			background-image:-moz-linear-gradient( bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
+			background-image:-o-linear-gradient( bottom, #2BFCFF, #20DCDF 50%, #1CB8BA );
+		}
+		div.eleoperate p.operateP{
+			border: 1px solid #33AF7F;
+			color: #646464;
+		}
+
+		div.classoperate button.addtional{
+			color: #000000;
+		}
+		div.box p{
+			width:300px;
+			height: 300px;
+			margin: 0 auto;
+			background-image: radial-gradient( #2EF669, #22B14C );
+			background-image: -webkit-radial-gradient( #2EF669, #22B14C );
+			background-image: -moz-radial-gradient( #2EF669, #22B14C );
+			background-image: -o-radial-gradient( #2EF669, #22B14C );
 		}
 	</style>
 </head>
 <body>
 	
-	<div class="container">
-		<div>
-			<h3>获取内容 - text()、html()、val()</h3>
-			<ul>
-				<li>text() - 设置或返回所选元素的文本内容</li>
-				<li>html() - 设置或返回所选元素的内容（包含HTML标签）</li>
-				<li>val() - 设置或返回表单字段的值</li>
-			</ul>
-			<input type="text" name="msg"><br />
-			<button class="btn0" name="jerome">value</button><br />
-			<span class="textAttr"></span>
-		</div>
+	<div>
+		<h3>获取内容 - text()、html()、val()</h3>
+		<ul>
+			<li>text() - 设置或返回所选元素的文本内容</li>
+			<li>html() - 设置或返回所选元素的内容（包含HTML标签）</li>
+			<li>val() - 设置或返回表单字段的值</li>
+		</ul>
+		<input type="text" name="msg"><br />
+		<button class="btn0" name="jerome">value</button><br />
+		<span class="textAttr"></span>
+	</div>
 
-		<div>
-			<h3>获取属性 - arr()</h3>
-			<ul>
-				<li>attr() - 方法用于获取属性值</li>
-			</ul>
-			<button class="btn1" name="获取我干什么">点击我获取button的name属性值</button><br />
-			<span class="attrText"></span>
-		</div>
+	<div>
+		<h3>获取属性 - arr()</h3>
+		<ul>
+			<li>attr() - 方法用于获取属性值</li>
+		</ul>
+		<button class="btn1" name="获取我干什么">点击我获取button的name属性值</button><br />
+		<span class="attrText"></span>
+		<strong>以上函数拥有回调函数，包含两个参数：被选元素列表中当前元素的下标，以及原始(旧的)值，函数返回新的值</strong>
+		<hr />
+	</div>
+
+	<div class="eleoperate">
+		<button class="appbtn">append所选元素的结尾插入内容</button>
+		<button class="prebtn">prepend所选元素的开头插入内容</button>
+		<button class="aftbtn">after所选元素之后插入内容</button>
+		<button class="befbtn">before所选元素之前出入内容</button>
+		<button class="rembtn">remove删除被选元素（及其子元素）</button>
+		<button class="empbtn">empty删除被选元素的子元素</button>
+		<button class="italic">为元素添加一个含italic类名的元素</button>
+		<button class="deleitalic">删除含有italic类名的元素</button>
+		<p class="operateP">元素内部：</p>
+		<hr />
+	</div>
+
+	<div class="classoperate">
+		<button class="">点击按钮添加或修改类名</button>
+		<button class="">点击改变按钮样式</button>
+		<hr />
+	</div>
+
+	<div class="box">
+		<p></p>
 	</div>
 
 	<script type="text/javascript">
@@ -57,6 +111,109 @@
 			$( "div.container button.btn1" ).click( function(){
 				$( "div.container span.attrText" ).text( $( "div.container button.btn1" ).attr( "name" ) );
 			} );
+
+
+			/**
+			 * append在所选元素尾部添加元素
+			 * arr 元素集合
+			 */
+			$( "div.eleoperate button.appbtn" ).click( function(){
+				var arr = eleoperate( "append" );
+				$( "div.eleoperate p.operateP" ).append( arr[0], arr[1], arr[2] );
+				console.log( arr.length  );
+			} );
+
+			/**
+			 * prepend在所选元素尾部开头元素
+			 * arr 元素集合
+			 */
+			$( "div.eleoperate button.prebtn" ).click( function(){
+				var arr = eleoperate( "prepend" );
+				$( "div.eleoperate p.operateP" ).prepend( arr[0], arr[1], arr[2] );
+				console.log( arr.length );
+			} );
+
+			/**
+			 * after在所选元素之后添加元素
+			 * arr 元素集合
+			 */
+			$( "div.eleoperate button.aftbtn" ).click( function(){
+				var arr = eleoperate( "after" );
+				$( "div.eleoperate p.operateP" ).after( arr[0], arr[1], arr[2] );
+				console.log( arr.length  );
+			} );
+
+			/**
+			 * before在所选元素之前添加元素
+			 * arr 元素集合
+			 */
+			$( "div.eleoperate button.befbtn" ).click( function(){
+				var arr = eleoperate( "before" );
+				$( "div.eleoperate p.operateP" ).before( arr[0], arr[1], arr[2] );
+				console.log( arr.length  );
+			} );
+
+			/**
+			 * remove删除所选元素包括子元素
+			 * arr 元素集合
+			 */
+			$( "div.eleoperate button.rembtn" ).click( function(){
+				$( "div.eleoperate p.operateP" ).remove();
+			} );
+
+			/**
+			 * empty删除所选元素中的子元素
+			 * arr 元素集合
+			 */
+			$( "div.eleoperate button.empbtn" ).click( function(){
+				$( "div.eleoperate p.operateP" ).empty();
+			} );
+
+
+			$( "div.eleoperate button.italic" ).click( function(){
+				$( "div.eleoperate p.operateP" ).append( $( "<p class=italic></p>" ).text( "italic类名的P元素" ) );
+			} );
+
+			/**
+			 * 删除所选元素集合中能通过remove参数选择器查找到的元素
+			 */
+			$( "div.eleoperate button.deleitalic" ).click( function(){
+				$( "p" ).remove( ".italic" );
+			} );
+
+			/**
+			 * addClass给被选元素的添加类名
+			 * removeClass删除被选元素的类名
+			 * toggleClass对被选元素进行添加/删除类的切换操作
+			 */
+			$( "div.classoperate button:first-of-type" ).click( function(){
+				$( "div.classoperate button:first-of-type" ).addClass( "addtional" );
+			} );
+
+			/**
+			 * cssheight选定元素添加指定样式
+			 * 参数为JSON格式时可添加多个样式
+			 */
+			$( "div.classoperate  button:last-of-type" ).click( function(){
+				$( "div.classoperate button:last-of-type" ).css( {
+					"color":"green"
+				} );
+			} );
+
+			$( "div.box > p" ).click( function(){
+
+				$( this ).text( "width:" + $( this ).width() + "\nheight:" + $( this ).height() + "\ninnerWidth:" + $( this ).innerWidth() + "\ninnerHeight:" + $( this ).innerHeight() + "\nouterWidth:" + $( this ).outerWidth() + "\nouterHeight" + $( this ).outerHeight() )
+			} );
+
+
+			function eleoperate( content ){
+				var text1 = "<p>" + content  + "</p>"; //使用HTML标签创建文本
+				var text2 = $( "<p></p>" ).text( content );  //使用jQuery创建文本
+				var text3 = document.createElement( "p" );//使用DOM创建文本
+					text3.innerHTML = content;
+				console.log( "ok?" );
+				return [text1,text2,text3];
+			}
 		} );
 
 	</script>
