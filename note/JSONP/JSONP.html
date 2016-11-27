@@ -1,1 +1,184 @@
-JSONP.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSONP 实例</title>
+<link rel="stylesheet" type="text/css" href="./main.css">
+<script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <section class="main">
+            <article class="aritcle-main">
+                <header>
+                    <h2>跨域解决方案</h2>
+                </header>
+                <time>
+                    2016-11-27 12:15
+                </time>
+                <div class="article-entry">
+                    <h3>• JSONP解决GET跨域</h2>
+                    <p>关于跨域问题出现的，是因为浏览器<code>同源策略</code>，首先JSONP与JSON无任何关系，举个栗子</p>
+                    <p>首先本地创建一个文件，用于向<code>www.runoob.com/try/ajax/jsonp.php</code>发送请求</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>1</span>
+                                    <br />
+                                    <span>2</span>
+                                    <br />
+                                    <span>3</span>
+                                    <br />
+                                    <span>4</span>
+                                     <br />
+                                    <span>5</span>
+                                     <br />
+                                    <span>6</span>             
+                                </td>
+                                <td>
+                                    <span>&lt;?php</span>
+                                    <br />
+                                    <span>header('Content-type:application/json');</span>
+                                    <br />
+                                    <span>$jsoncallback = htmlspecialchars($_REQUEST ['jsoncallback']);</span>
+                                    <br />
+                                    <span>$json_data = '["customername1","customername2"]';</span>
+                                    <br />
+                                    <span>echo $jsoncallback . "(" . $json_data . ")";</span>
+                                    <br />
+                                    <span>?&gt;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>然后再本地创建一个文件：其实就是本文下面，创建一个callbackFunction函数</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>1</span>
+                                    <br />
+                                    <span>2</span>
+                                    <br />
+                                    <span>3</span>
+                                    <br />
+                                    <span>4</span>
+                                     <br />
+                                    <span>5</span>
+                                     <br />
+                                    <span>6</span>  
+                                    <br />
+                                    <span>7</span>  
+                                    <br />
+                                    <span>8</span>
+                                    <br />
+                                    <span>9</span>
+                                    <br />
+                                    <span>10</span>  
+                                    <br />
+                                    <span>11</span>           
+                                </td>
+                                <td>
+                                    <span>&lt;script type="text/javascript"&gt;</span>
+                                    <br />
+                                    <span>function callbackFunction(result, methodName){</span>
+                                    <br />
+                                    <span>var html = '&lt;ul&gt;';</span>
+                                    <br />
+                                    <span>for(var i = 0; i < result.length; i++){</span>
+                                    <br />
+                                    <span>html += '&lt;li&gt;' + result[i] + '&lt;/li&gt;';</span>
+                                    <br />
+                                    <span>}</span>
+                                    <br />
+                                    <span>html += '&lt;/ul&gt;';</span>
+                                    <br />
+                                    <span>document.getElementById('divCustomers').innerHTML = html;</span>
+                                    <br />
+                                    <span>}</span>
+                                    <br />
+                                    <span>&lt;/script&gt;</span>
+                                    <br />
+                                    <span style="color:black">&lt;script type="text/javascript" src="http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction"&gt;&lt;/script&gt;</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="">需要注意的是JSONP只支持GET请求</p>
+                    <h3>• 设置Access-Control-Allow-Origin响应头</h2>
+                    <p>显然JSONP只支持GET请求，那么对于POST请求它就无能为力了，这个时候我们需要在服务端配置响应头Access-Control-Allow-Origin，并且添加允许跨域的域名</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>1</span>
+                                    <br />
+                                    <span>2</span>
+                                    <br />
+                                    <span>3</span>                                   
+                                </td>
+                                <td>
+                                    <span>header('Access-Control-Allow-Origin: http://www.example.com');</span>
+                                    <br />
+                                    <span>$user_info = '{ "name": "张三", "age": "18" }';</span>
+                                    <br />
+                                    <span>echo $user_info;</span>                               
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>需要注意的是响应头允许跨域的域名结尾不要加‘/’，诸如 header('Access-Control-Allow-Origin: http://www.JSONP.com/'); ，假如需要允许跨多个域名需如下配置</p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>1</span>
+                                    <br />
+                                    <span>2</span>
+                                    <br />
+                                    <span>3</span>
+                                    <br />
+                                    <span>4</span>   
+                                    <br />
+                                    <span>5</span>                                 
+                                </td>
+                                <td>
+                                    <span>$origin = isset($_SERVER['HTTP_ORIGIN'])? $_SERVER['HTTP_ORIGIN'] : ''; </span>
+                                    <br />
+                                    <span>$allow_origin = array('http://www.example.com', 'http://www.example2.com');</span>
+                                    <br />
+                                    <span>if(in_array($origin, $allow_origin)){  </span>    
+                                    <br />
+                                    <span>header('Access-Control-Allow-Origin:'.$origin);</span>   
+                                    <br />
+                                    <span>}</span>                        
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3>• Apache反向代理</h3>
+                    <a href="http://everyding.github.io/2016/04/16/cross-domain/">click me</a>
+                </div>
+            </article>
+        </section>
+
+        <div id="divCustomers"></div>
+    </div>
+
+    <script type="text/javascript">
+        $youziku.load("body", "c682438286354c43ae91370a4a5b123a", "Source-Han-Light");
+        $youziku.draw();
+
+        function callbackFunction(result, methodName){
+            var html = '<ul>';
+            for(var i = 0; i < result.length; i++){
+                html += '<li>' + result[i] + '</li>';
+            }
+            html += '</ul>';
+            document.getElementById('divCustomers').innerHTML = html;
+        }
+    </script>
+    <script type="text/javascript" src="http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction"></script>
+</body>
+</html>

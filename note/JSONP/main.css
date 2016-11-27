@@ -1,0 +1,57 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	height: 100%;
+	font-size: 18px;
+}
+
+h2,h3{
+	color: #555;
+}
+
+div.container{
+	max-width: 920px;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+section.main{
+	margin-bottom: 50px;
+}
+article.aritcle-main h2{
+	padding: 16px 0;
+}
+
+article.aritcle-main h3{
+	padding: 10px 0;
+}
+
+article.aritcle-main p{
+	padding: 0 0 8px 0;
+}
+
+article.aritcle-main time{
+	color: #999;
+	font-size: 14px;
+}
+
+div.article-entry table{
+	background-color: #F7F7F7;
+	color: #666;
+	font-size: 14px;
+	margin: 20px 10px;
+}
+
+div.article-entry table td:first-of-type{
+	border-right: 1px solid #aaa;
+}
+
+div.article-entry td span{
+	color: #759731;
+	padding: 4px 6px;
+}
+
+#divCustomers{
+	border: 1px solid #555;
+}
