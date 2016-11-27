@@ -1,0 +1,70 @@
+/*
+* @Author: jeromelive
+* @Date:   2016-11-27 23:50:42
+* @Last Modified by:   jeromelive
+* @Last Modified time: 2016-11-28 01:00:53
+*/
+
+html{
+	font-style: 20px;
+}
+
+article.background-border{
+	max-width: 920px;
+	margin: 2.5rem auto;
+	background-color: #F8ECE8;
+}
+
+article.background-border h1{
+	color: #DC277E;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+article.background-border h1 span{
+	display: inline-block;
+	color: #fff;
+	font-size: 5rem;
+	text-align: right;
+	width: 6rem;
+	line-height: 1;
+	padding: .5rem 2rem;
+	margin: 0 1rem 0 0;
+	border-radius:4rem 4rem 0 4rem;
+	background: #DC277E;
+}
+
+article.background-border div.entry{
+	color: #fff;
+	padding: 1.6rem;
+	border-radius: 2rem;
+	background-color: #6D5E58;
+}
+
+article.background-border div.entry p:first-child{
+	color: #A8C234;
+	font-weight: bold;
+}
+
+article.background-border div.entry h2.additional{
+	color: #DC277E;
+}
+
+article.background-border div.translucent{
+	color: #646464;
+	border: 10px solid hsla(0,0%,100%,.5);
+	background: white;
+	background-clip: padding-box;
+}
+
+article.background-border div.multiple-borders{
+	box-shadow: 0 0 0 10px yellowgreen,0 0 0 15px deeppink;
+}
+
+article.background-border div.multiple-borders ul.outline{
+	max-width: 400px;
+	margin: 0 auto;
+	border: 5px solid #fff;
+	outline: 5px solid #DC277E;
+	border-radius: 4rem;
+}

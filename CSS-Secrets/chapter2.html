@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景与边框</title>
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+</head>
+<body>
+	<article class="background-border">
+		<section>
+			<header>
+				<h1><span>1</span>半透明边框</h1>
+			</header>
+			<div class="entry translucent">
+				<p>背景知识</p>
+				<p>RGBA/HSLA颜色</p>
+				<p>如果将框架div元素的背景颜色设置为white，边框不可看见</p>
+				<p>默认情况下背景会延伸到边框所在的区域下层</p>
+				<p>可以通过background-clip属性来调整上述默认行为带来的不变</p>
+				<ul>
+					<li><p>border-box:默认值，背景绘制在边框方框内</p></li>
+					<li><p>padding-box:背景绘制在衬距方框内</p></li>
+					<li><p>content-box:背景绘制在内容边框内</p></li>
+				</ul>
+			</div>
+		</section>
+
+		<section>
+			<header>
+				<h1><span>2</span>多重边框</h1>
+			</header>
+			<div class="entry multiple-borders">
+				<p>背景知识</p>
+				<p>box-shadow的基本用法</p>
+				<p>box-shadow: h-shadow v-shadow blur spread color inset;</p>
+				<p>box-shadow支持逗号分隔语法，可以创建任意数量的投影</p>
+				<p>box-shadow是层层叠加的,第一层投影位于最顶层，依次类推</p>
+				<p>注意</p>
+				<ul>
+					<li><p>投影的因为跟边框不完全一致，因为他不会影响布局，而且也不会受box-sizing属性的影响。可以用通过内边距或外边距（这个屈居于投影是内嵌还是外扩的）来额外模拟出边框需要占据的控件</p></li>
+					<li><p>不影响鼠标事件，计入悬停或点击。可以给box-shadow属性加上inset关键字，使投影绘制在元素的内圈，此时需要添加额外得内边距来腾出足够的空隙。<p></li>
+				</ul>
+				<h2 class="additional">outline方案</h2>
+				<p>如果只需要两层边框，可以使用一层常规边框，再加上outline属性来产生外层的边框。</p>
+				<p>使用outline-offset属性控制它跟元素边缘之间的间距，接受复制</p>
+				<p>优点：box-shadow只能模拟实线边框，outline可以产生虚线边框</p>
+				<ul class="outline">
+					<p>缺点</p>
+					<li><span>outline不能接受用逗号分隔的多个值</span></li>
+					<li><span>边框比一定会贴合border-radius属性产生的圆角</span></li>
+					<li><span>兼容性欠佳</span></li>
+				</ul>
+			</div>
+		</section>
+	</article>
+</body>
+</html>
