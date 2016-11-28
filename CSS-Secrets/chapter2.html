@@ -56,6 +56,16 @@
 
 		<section>
 			<header>
+				<h1><span>3</span>背景定位</h1>
+			</header>
+			<div class="entry backgroundposition">
+				<p>背景知识</p>
+				<p>background-position</p>
+			</div>
+		</section>
+
+		<section>
+			<header>
 				<h1><span>5</span>条纹背景</h1>
 			</header>
 			<div class="entry  stripebackground " id="stripes">
@@ -64,14 +74,21 @@
 				<p>background:linear-gradient(#fb3,#58a);</p>
 				<p>background:linear-gradient(#fb3 20%, #58a 80%);便是容器顶部的20%区域被填充为#fb3实色，而底部20%区域被填充为#58a实色，真正的渐变只出现在容日中间60%的高度区域中，如果把两个色标继续拉近，那真正的渐变区域就变得更窄了</p>
 				<p>当前背景是两个色标重合在一起，如果把第二个色标的位置设置为0，那它的位置就总是会被浏览器调整为前一个色标的位置值。也可以创建不全等的条纹：background: linear-gradient( #fb3 30%,#58a 30% );</p>
-				<p class="stripedir">click me把条纹方向向左</p>
+				<p class="stripeP stripedir">click me把条纹方向向左</p>
 				<p>background: linear-gradient( to right,#fb3 50%,#58a 50%);</p>
-				<p class="stripes">click me把条纹生成三种颜色的条纹</p>
+				<p class="stripeP  stripes">click me把条纹生成三种颜色的条纹</p>
 				<p>background: linear-gradient( #fb3 33.30%,#58a 0,#58a 66.6%,yellowgreen 0);</p>
-				<p class="stripetilt">click me条纹45deg</p>
+				<p class="stripeP  stripetilt">click me条纹45deg</p>
 				<p>background: linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);</p>
-				<p></p>
+				<p class="stripeP stripetilt">click me条纹60deg</p>
+				<p>background: repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );</p>
 			</div>
+		</section>
+
+		<section>
+			<header>
+				<h1><span></span></h1>
+			</header>
 		</section>
 	</article>
 	<script type="text/javascript">
@@ -79,19 +96,19 @@
 		$youziku.draw();
 
 		//事件委托
-		var stripedir = stripes = stripetilt  =  true;
+		var stripedir = stripes = stripetilt45  = stripetilt60 =   true;
 
-		var stripes = document.getElementById( "stripes" );
-		stripes.addEventListener( "click", function( event ){
+		document.getElementById( "stripes" ).addEventListener( "click", function( event ){
 			switch (event.target) {
-				case document.getElementsByClassName( "stripedir" )[0] : stripedirection();break;
+				case document.getElementsByClassName( "stripedir" )[0] : stripedirfunc();break;
 				case document.getElementsByClassName( "stripes" )[0] : stripesfunc();break;
-				case document.getElementsByClassName( "stripetilt" )[0] : stripetiltfunc();break;
+				case document.getElementsByClassName( "stripetilt" )[0] : stripetilt45func();break;
+				case document.getElementsByClassName( "stripetilt" )[1]: stripetilt60func();break;
 				default : break;
 			}
 		} );
 
-		function stripedirection(){
+		function stripedirfunc(){
 			stripedir ? (function(){
 			var div = document.getElementsByClassName( "stripebackground" )[0].classList;
 				div.remove( "stripebackground" );
@@ -119,17 +136,31 @@
 			})();	
 		}
 
-		function stripetiltfunc(){
-			stripetilt ? (function(){
+		function stripetilt45func(){
+			stripetilt45 ? (function(){
 				var div = document.getElementsByClassName( "stripebackground" )[0].classList;
 				div.remove(  "stripebackground" );
-				div.add( "tiltstripebackground" );
-				stripetilt = false;
+				div.add( "tilt45stripebackground" );
+				stripetilt45 = false;
 			})() :  (function(){
-				var div = document.getElementsByClassName( "tiltstripebackground" )[0].classList;
-				div.remove(  "tiltstripebackground" );
+				var div = document.getElementsByClassName( "tilt45stripebackground" )[0].classList;
+				div.remove(  "tilt45stripebackground" );
 				div.add( "stripebackground" );
-				stripetilt = true;
+				stripetilt45 = true;
+			})();
+		}
+
+		function stripetilt60func(){
+			stripetilt60 ? (function(){
+				var div = document.getElementsByClassName( "stripebackground" )[0].classList;
+				div.remove(  "stripebackground" );
+				div.add( "tilt60stripebackground" );
+				stripetilt60 = false;
+			})() :  (function(){
+				var div = document.getElementsByClassName( "tilt60stripebackground" )[0].classList;
+				div.remove(  "tilt60stripebackground" );
+				div.add( "stripebackground" );
+				stripetilt60 = true;
 			})();
 		}
 	</script>

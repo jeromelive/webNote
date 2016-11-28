@@ -73,9 +73,12 @@ article.background-border div.multiple-borders ul.outline{
 	border-radius: 4rem;
 }
 
-article.background-border div.entry p.stripes , article.background-border div.entry p.stripedir,article.background-border div.entry p.stripetilt {
-	color: #000;
+article.background-border div.entry p.stripeP{
+	border: 1px solid;
+	color: #6D5E58;
 	cursor: pointer;
+	line-height: 2;
+	font-weight: bold;
 }
 
 /*两条条纹*/
@@ -107,11 +110,25 @@ article.background-border  div.threestripebackground{
 	background-size: 100% 45px;
 }
 
-/*倾斜条纹*/
-article.background-border  div.tiltstripebackground{
+/*倾斜45度条纹*/
+article.background-border  div.tilt45stripebackground{
 	background: linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
 	background: -webkit-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
 	background: -moz-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
 	background: -o-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
 	background-size: 30px 30px;
+}
+
+/*倾斜60度条纹*/
+article.background-border  div.tilt60stripebackground{
+	background: repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
+	background: -webkit-repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
+	background: -moz-repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
+	background: -o-repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
+	background-size: 42.426406871px 42.426406871px ;
+}
+
+article.background-border  div.backgroundposition{
+	background: url( "./css/img/dongnanya.png" ) no-repeat #58a;
+	background-position: right 20px bottom 10px;
 }
