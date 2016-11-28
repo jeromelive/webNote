@@ -13,6 +13,7 @@ article.background-border{
 	max-width: 920px;
 	margin: 2.5rem auto;
 	background-color: #F8ECE8;
+	font-size: 1rem;
 }
 
 article.background-border h1{
@@ -55,6 +56,9 @@ article.background-border div.translucent{
 	border: 10px solid hsla(0,0%,100%,.5);
 	background: white;
 	background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	-o-background-clip: padding-box;
 }
 
 article.background-border div.multiple-borders{
@@ -67,4 +71,47 @@ article.background-border div.multiple-borders ul.outline{
 	border: 5px solid #fff;
 	outline: 5px solid #DC277E;
 	border-radius: 4rem;
+}
+
+article.background-border div.entry p.stripes , article.background-border div.entry p.stripedir,article.background-border div.entry p.stripetilt {
+	color: #000;
+	cursor: pointer;
+}
+
+/*两条条纹*/
+article.background-border  div.stripebackground{
+	background: linear-gradient( #fb3 50%,#58a 50%);
+	/*创建不全等条纹*/
+	/*background: linear-gradient( #fb3 30%,#58a 30% );*/
+	background: -webkit-linear-gradient( #fb3 50%,#58a 50% );
+	background: -moz-linear-gradient( #fb3 50%,#58a 50% );
+	background: -o-linear-gradient( #fb3 50%,#58a 50% );
+	background-size: 100% 30px;/*把条纹的盖度缩小到了15px,背景默认情况下是重复平铺的*/
+}
+
+/*条纹方向想右*/
+article.background-border  div.rifgtstripebackground{
+	background: linear-gradient( to right,#fb3 50%,#58a 50%);
+	background: -webkit-linear-gradient( left,#fb3 50%,#58a 50% );
+	background: -moz-linear-gradient( right,#fb3 50%,#58a 50% );
+	background: -o-linear-gradient( right,#fb3 50%,#58a 50% );
+	background-size: 30px 100%;
+}
+
+/*三条纹*/
+article.background-border  div.threestripebackground{
+	background: linear-gradient( #fb3 33.30%,#58a 0,#58a 66.6%,yellowgreen 0);
+	background: -webkit-linear-gradient( #fb3 33.3%,#58a 0,#58a 66.6%,yellowgreen 0 );
+	background: -moz-linear-gradient( #fb3 33.3%,#58a 0,#58a 66.6%,yellowgreen 0 );
+	background: -o-linear-gradient( #fb3 33.3%,#58a 0,#58a 66.6%,yellowgreen 0 );
+	background-size: 100% 45px;
+}
+
+/*倾斜条纹*/
+article.background-border  div.tiltstripebackground{
+	background: linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
+	background: -webkit-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
+	background: -moz-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
+	background: -o-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
+	background-size: 30px 30px;
 }
