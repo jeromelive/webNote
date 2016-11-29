@@ -2,7 +2,7 @@
 * @Author: jeromelive
 * @Date:   2016-11-27 23:50:42
 * @Last Modified by:   jeromelive
-* @Last Modified time: 2016-11-28 01:00:53
+* @Last Modified time: 2016-11-29 23:54:30
 */
 
 html{
@@ -73,6 +73,18 @@ article.background-border div.multiple-borders ul.outline{
 	border-radius: 4rem;
 }
 
+/******************************************背景定位部分***********************************************************/
+article.background-border  div.backgroundposition{
+	background: url( "./img/dongnanya.png" ) no-repeat #58a bottom right;
+	background-position: right 20px bottom 10px;
+}
+
+article.background-border  div.boxshadowoutline{
+	outline: 1rem solid yellowgreen;
+	box-shadow: 0 0 0 .8rem yellowgreen;
+}
+
+/*******************************************渐变部分****************************************/
 article.background-border div.entry p.stripeP{
 	border: 1px solid;
 	color: #6D5E58;
@@ -82,7 +94,7 @@ article.background-border div.entry p.stripeP{
 }
 
 /*两条条纹*/
-article.background-border  div.stripebackground{
+article.background-border div.stripebackground{
 	background: linear-gradient( #fb3 50%,#58a 50%);
 	/*创建不全等条纹*/
 	/*background: linear-gradient( #fb3 30%,#58a 30% );*/
@@ -93,7 +105,7 @@ article.background-border  div.stripebackground{
 }
 
 /*条纹方向想右*/
-article.background-border  div.rifgtstripebackground{
+article.background-border div.rifgtstripebackground{
 	background: linear-gradient( to right,#fb3 50%,#58a 50%);
 	background: -webkit-linear-gradient( left,#fb3 50%,#58a 50% );
 	background: -moz-linear-gradient( right,#fb3 50%,#58a 50% );
@@ -102,7 +114,7 @@ article.background-border  div.rifgtstripebackground{
 }
 
 /*三条纹*/
-article.background-border  div.threestripebackground{
+article.background-border div.threestripebackground{
 	background: linear-gradient( #fb3 33.30%,#58a 0,#58a 66.6%,yellowgreen 0);
 	background: -webkit-linear-gradient( #fb3 33.3%,#58a 0,#58a 66.6%,yellowgreen 0 );
 	background: -moz-linear-gradient( #fb3 33.3%,#58a 0,#58a 66.6%,yellowgreen 0 );
@@ -111,7 +123,7 @@ article.background-border  div.threestripebackground{
 }
 
 /*倾斜45度条纹*/
-article.background-border  div.tilt45stripebackground{
+article.background-border div.tilt45stripebackground{
 	background: linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
 	background: -webkit-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
 	background: -moz-linear-gradient( 45deg, #fb3 25%,#58a 0,#58a 50%,#fb3  0, #fb3 75%,#58a 0);
@@ -120,7 +132,7 @@ article.background-border  div.tilt45stripebackground{
 }
 
 /*倾斜60度条纹*/
-article.background-border  div.tilt60stripebackground{
+article.background-border div.tilt60stripebackground{
 	background: repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
 	background: -webkit-repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
 	background: -moz-repeating-linear-gradient( 45deg, #fb3,#fb3 15px,#58a 0,#58a 30px );
@@ -128,7 +140,36 @@ article.background-border  div.tilt60stripebackground{
 	background-size: 42.426406871px 42.426406871px ;
 }
 
-article.background-border  div.backgroundposition{
-	background: url( "./css/img/dongnanya.png" ) no-repeat #58a;
-	background-position: right 20px bottom 10px;
+/*网格背景*/
+article.background-border div.stripeoverlap{
+	background-color: white;
+	background-image: linear-gradient( 90deg, rgba(200,0,0,.5) 50%, transparent 0 ),linear-gradient( rgba(200,0,0,.5) 50%, transparent 0 );
+	/*background-image: -webkit-linear-gradient( 90deg, rgba(200,0,0,.5) 50%, transparent 0 ),-webkit-linear-gradient( rgba(200,0,0,.5) 50%, transparent 0 );*/
+	background-image: -moz-linear-gradient( 90deg, rgba(200,0,0,.5) 50%, transparent 0 ),-moz-linear-gradient( rgba(200,0,0,.5) 50%, transparent 0 );
+	background-image: -o-linear-gradient( 90deg, rgba(200,0,0,.5) 50%, transparent 0 ),-o-linear-gradient( rgba(200,0,0,.5) 50%, transparent 0 );
+	background-size: 30px 30px;	
+/*	background: white;
+	background-image: linear-gradient(white,1px,*/
 }
+
+/*固定宽度边框网格*/
+/*article.background-border div.stripeoverlap{
+	background-image: linear-gradient( 90deg, white 1px, transparent 0 ),linear-gradient( white 1px, transparent 0 );
+	background-image: -webkit-linear-gradient( 90deg, white 1px, transparent 0 ),-webkit-linear-gradient( white 1px, transparent 0 );
+	background-image: -moz-linear-gradient( 90deg, white 1px, transparent 0 ),-moz-linear-gradient( white 1px, transparent 0 );
+	background-image: -o-linear-gradient( 90deg, white 1px, transparent 0 ),-o-linear-gradient( white 1px, transparent 0 );
+	background-size: 30px 30px;	
+}*/
+
+/*重复波点*/
+article.background-border div.stripetanover{
+	background: #655;
+	background-image: radial-gradient(tan 30%, transparent 0),radial-gradient(tan 30%, transparent 0);
+	background-image: -webkit-radial-gradient(tan 30%, transparent 0),-webkit-radial-gradient(tan 30%, transparent 0);
+	background-image: -moz-radial-gradient(tan 30%, transparent 0),-moz-radial-gradient(tan 30%, transparent 0);
+	background-image: -o-radial-gradient(tan 30%, transparent 0),-o-radial-gradient(tan 30%, transparent 0);
+	background-size: 30px 30px;
+	background-position: 0 0,15px 15px;
+}
+
+/**/
