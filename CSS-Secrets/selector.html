@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css选择器</title>
+	<style type="text/css">
+		div.selectors{
+			max-width: 920px;
+			margin: 0 auto;
+		}
+		div.selectors>div{
+			margin-bottom: 10px;
+		}
+		div.class1>p{
+			color: #58a;
+		}
+		div.class2>p{
+			color: yellowgreen;
+		}
+		div.class3>input[type]{
+			width: 700px;
+		}
+		div.class4>input[type=text]{
+			width: 700px;
+		}
+		div.class5>input[name*=inp5]{
+			width: 700px;
+		}
+		div.class6>select[name^=sel]{
+			width: 600px;
+		}
+		div.class7{
+			text-decoration: none;
+		}
+		div.class7>a:link{
+			color: red;
+		}
+		div.class7>a:hover{
+			color: black;
+		}
+		div.class7>a:active{
+			color: yellow;
+		}
+		div.class7>a:visited{
+			color: blue;
+		}
+		div.class8>input{
+			width: 700px;
+		}
+		div.class8>input:focus{
+			font-size: 30px;
+			height: 50px;
+			width: 500px;
+			outline-color: yellow;
+		}
+		div.class9>p:first-letter{
+			font-size: 30px;
+			color: #58a;
+		}
+		div.class10>p:first-line{
+			font-size: 50px;
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="selectors">
+		<div class="class1">
+			<p><strong>1.</strong>element>element，如：div>p，选择所有父级是&lt;div&gt;元素的&lt;p&gt;元素</p>
+		</div>
+		<div class="class2">
+			<p><strong>2.</strong>element+element，如：div+p，选择所有紧跟&lt;div&gt;元素之后的&lt;p&gt;元素</p>
+		</div>
+		<div class="class3">
+			<strong>3.</strong><input type="text" placeholder="[attibute]，如：div.class3>input[type]，选择类名为class3的<div>元素所有带有type属性的输入元素" />
+		</div>
+		<div class="class4">
+			<strong>4.</strong><input type="text" placeholder="[attibute=value]，如：div.class4>input[type=text]，选择类名为class4的<div>元素所有type=text属性的输入元素" />
+		</div>
+		<div class="class5">
+			<strong>5.</strong><input type="text" name="dfsdfinp5sdfsd" placeholder="[attibute=value]，如：div.class5>input[name*=inp5]，选择类名为class5的<div>元素所有name包含单词'inp5'的输入元素" />
+		</div>
+		<div class="class6">
+			<strong>6.</strong>
+			<select name="select">
+				<option value="A">如"div.class6>select[name^=sel]"</option>
+				<option value="B">选择类名为class5的&lt;div&gt;元素</option>
+				<option value="C">所有name包含单词'sel'开头的选择元素"</option>
+			</select>
+		</div>
+		<div class="class7">
+			<strong>7.</strong>
+			<a href="">link,hover,active,visited</a>
+		</div>
+		<div class="class8">
+			<strong>8.</strong><input type="text" />
+			<p>:focus，如：div.class8>input:focus，选择类名为class8的&lt;div&gt;元素具有焦点的输入元素"</p>
+		</div>
+		<div class="class9">
+			<p><strong>9.</strong>:first-letter，如：div.class9>p:first-letter选择类名为class9的&lt;div&gt;元素下所有的&lt;p&gt;元素第一个字母</p>
+		</div>
+		<div class="class10">
+			<p><strong>10.</strong>:first-line，如：div.class10>p:first-line选择类名为class10的&lt;div&gt;元素下所有的&lt;p&gt;元素第一行</p>
+		</div>
+	</div>
+</body>
+</html>
